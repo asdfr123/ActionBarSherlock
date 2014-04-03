@@ -326,7 +326,7 @@ public class ActionBarImpl extends ActionBar {
             break;
         default:
             throw new IllegalStateException(
-                    "setSelectedNavigationItem not valid for current navigation mode");
+                    "setSelectedNavigationIndex not valid for current navigation mode");
         }
     }
 

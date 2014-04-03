@@ -36,7 +36,7 @@ public class IcsListPopupWindow {
     private static final int EXPAND_LIST_TIMEOUT = 250;
 
     private Context mContext;
-    private final PopupWindowCompat mPopup;
+    private PopupWindow mPopup;
     private ListAdapter mAdapter;
     private DropDownListView mDropDownList;
 
@@ -80,7 +80,7 @@ public class IcsListPopupWindow {
 
     public IcsListPopupWindow(Context context, AttributeSet attrs, int defStyleAttr) {
         mContext = context;
-        mPopup = new PopupWindowCompat(context, attrs, defStyleAttr);
+        mPopup = new PopupWindow(context, attrs, defStyleAttr);
         mPopup.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
     }
 
@@ -88,9 +88,9 @@ public class IcsListPopupWindow {
         mContext = context;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
             Context wrapped = new ContextThemeWrapper(context, defStyleRes);
-            mPopup = new PopupWindowCompat(wrapped, attrs, defStyleAttr);
+            mPopup = new PopupWindow(wrapped, attrs, defStyleAttr);
         } else {
-            mPopup = new PopupWindowCompat(context, attrs, defStyleAttr, defStyleRes);
+            mPopup = new PopupWindow(context, attrs, defStyleAttr, defStyleRes);
         }
         mPopup.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
     }

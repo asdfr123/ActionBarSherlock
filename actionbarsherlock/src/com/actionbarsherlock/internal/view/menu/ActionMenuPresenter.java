@@ -23,14 +23,12 @@ import java.util.Set;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseBooleanArray;
 import android.view.SoundEffectConstants;
 import android.view.View;
 import android.view.View.MeasureSpec;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import com.actionbarsherlock.R;
@@ -118,17 +116,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter
     }
 
     public static boolean reserveOverflow(Context context) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB);
-        } else {
-            return !HasPermanentMenuKey.get(context);
-        }
-    }
-
-    private static class HasPermanentMenuKey {
-        public static boolean get(Context context) {
-            return ViewConfiguration.get(context).hasPermanentMenuKey();
-        }
+        return true;
     }
 
     public void onConfigurationChanged(Configuration newConfig) {
